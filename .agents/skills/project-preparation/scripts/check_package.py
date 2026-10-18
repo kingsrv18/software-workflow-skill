@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check a generated project package for missing local document references."""
+"""Check package entries, promised documents and local document references."""
 
 from __future__ import annotations
 
@@ -61,11 +61,20 @@ def candidates(raw: str, root: Path, source: Path):
     return options
 
 
-def inspect(root: Path, pdf: str | None):
+def inspect(root: Path, pdf: str | None, documents: tuple[str, ...] = ()):
     issues = []
     for required in ("README.md", "AGENTS.md", "docs"):
         if not (root / required).exists():
             issues.append(f"missing required package entry: {required}")
+
+    for document in documents:
+        target = (root / document).resolve()
+        if not target.is_relative_to(root):
+            issues.append(f"document path leaves package root: {document}")
+        elif not target.is_file():
+            issues.append(f"missing promised document: {document}")
+        elif not target.read_bytes().strip():
+            issues.append(f"empty promised document: {document}")
 
     markdown_files = sorted(project_markdown(root))
     if not markdown_files:
@@ -109,11 +118,15 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("project_folder", type=Path)
     parser.add_argument("--pdf", help="PDF path relative to the project folder")
+    parser.add_argument(
+        "--document", action="append", default=[], metavar="PATH",
+        help="Promised document path relative to the project folder; repeat for each artifact",
+    )
     args = parser.parse_args()
     root = args.project_folder.resolve()
     if not root.is_dir():
         parser.error(f"project folder does not exist: {root}")
-    issues, count = inspect(root, args.pdf)
+    issues, count = inspect(root, args.pdf, tuple(args.document))
     if issues:
         for issue in issues:
             print(f"ERROR {issue}")

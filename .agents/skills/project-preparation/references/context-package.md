@@ -4,7 +4,7 @@ Create a real folder whose documents answer the questions a coding agent will fa
 
 ## Stable handoff
 
-The package contains a navigable `README.md`, a concise task-routed `AGENTS.md`, the existing editable canonical PRD source and reviewed PDF, the existing implementation plan, a populated design-and-build workflow spec, and enough context docs to implement the agreed first release. Preserve source authority when bringing existing artifacts into the folder. File names and category folders beyond that follow the product. A separate document earns its place when it has a distinct authority, reader, update cadence, risk boundary, or task trigger. Otherwise keep the content with its nearest authoritative topic. Reference the plan rather than creating a separate phase/task-summary context document.
+The package contains a navigable `README.md`, a concise task-routed `AGENTS.md`, the existing editable canonical PRD source and reviewed PDF, the applicable structured user-flows document, the existing implementation plan, a populated design-and-build workflow spec, and enough context docs to implement the agreed first release. Preserve source authority when bringing existing artifacts into the folder. File names and category folders beyond that follow the product. A separate document earns its place when it has a distinct authority, reader, update cadence, risk boundary, or task trigger. Otherwise keep the content with its nearest authoritative topic. Reference the plan rather than creating a separate phase/task-summary context document.
 
 For each proposed file, answer:
 
@@ -17,6 +17,8 @@ Remove a proposed file when these answers are weak. Add a file when a single doc
 
 ## Select documents from the product
 
+Before choosing files, map applicable concerns from the agreed scope and flows to their authoritative document/section: domain/calculations, data ownership, API/module contracts, access/security, integrations/jobs, reports/files, UI behavior, setup and operations. Keep a compact coverage record with the documentation map or existing plan's preparation evidence; a separate tracker is unnecessary. Each concern has a concrete contract, an explicit decision dependency linked to affected slices, or a reason it is not applicable. Reuse the existing decision register and plan for decisions and readiness status. A filename or topic heading alone does not establish coverage.
+
 | Product characteristic | Context that may deserve its own document |
 | --- | --- |
 | Many actors, approvals, or exceptions | Actor journeys, permission and record-scope matrix, state transitions, correction paths. |
@@ -24,7 +26,7 @@ Remove a proposed file when these answers are weak. Add a file when a single doc
 | Sensitive or regulated data | Data classification, threat model, authorization, audit, retention, key and access controls, release evidence. |
 | Multiple tenants or organizations | Tenant boundary, identity/membership model, isolation and cross-tenant test cases. |
 | Heavy imports, files, or integrations | File lifecycle, mapping/validation, external contracts, failure and retry behavior, dependency/setup register. |
-| Important reports or exports | Data provenance, calculation grain, snapshots, permissions, reconciliation and acceptance fixtures. |
+| Important reports or exports | Required artifact contents/sections, source data and calculation grain, snapshots, permissions, reconciliation and acceptance fixtures. |
 | Large or designed UI | Shared interaction rules, navigation, screen states, design-source authority and accessibility. |
 | Several deployable parts or demanding operations | Runtime topology, environments, secrets, observability, backup/recovery and deployment plan. |
 | Public or commercial launch | Staging/production setup, recovery and incident runbooks, monitoring/analytics contracts, privacy/data-policy and compliance-document sources, customer/support guidance and launch readiness as applicable. |
@@ -33,17 +35,27 @@ Remove a proposed file when these answers are weak. Add a file when a single doc
 
 These are prompts for selection, not automatic files. A small application may cover several rows in one architecture note. A larger product may split one row across modules or workflows. Preserve the user's current design and delivery workflow; no screen catalogue is required by this package.
 
+### Implementation depth
+
+For consequential behavior, specify ownership, inputs/outputs, rules/invariants, state changes and guards, permission/record scope, failure/recovery and observable examples as applicable. Use exact calculations and worked expected results for calculation-heavy domains; define cross-module or external contracts where independently implemented parts must agree. Resolve conventions needed by the next slice instead of leaving interchangeable choices in instructions claimed ready for execution. Defer later detail explicitly with a decision trigger before its dependent slice; preparation need not fully specify every future endpoint or table.
+
+Split a broad note when a risky concern needs independent depth or task routing. Combine short notes that only repeat general principles. Document important report/export contents and acceptance outputs, not just the rendering technology. Keep user interaction sequences in the flow document and specialist rules in their domain/security/API authority, with links between them.
+
+Preserve an existing structured flow document, usually authored with the PRD. If a UI application lacks one, record the gap and complete the equivalent requirements handoff before claiming readiness for UI design; obtain owner decisions where consequential behavior is missing. Its role/module indexes route to canonical cross-role journeys. Completed designs can remain pending after preparation. Route subsequent design work to the flow document in the user's chosen connected design tool or accessible supplied material. Planned workspaces are design inputs, not an approved screen inventory.
+
 Use the plan's environment, operational, policy/document, and launch slices to seed the relevant context authorities. Record provider/environment choices, safe configuration names, document authority and review needs, and which real setup or evidence remains for later slices. An internal context note is not a published privacy policy, and scaffold verification does not establish production or commercial-launch readiness. Keep launch tasks and status in the implementation plan.
 
 ## Agent navigation
 
-`AGENTS.md` should point to the **actual authoritative documents** by task trigger: product behavior, interface, domain/API, data, access/security, integration, testing or release as applicable. Route build, verification, review, and resumption to both the implementation plan and design-and-build workflow spec. State source precedence and how to raise an unresolved contradiction. Keep it short enough that an agent can find the relevant source quickly. Do not duplicate the PRD or cache facts visible in configuration.
+`AGENTS.md` should point to the **actual authoritative documents** by task trigger: product behavior, UI design/flows, interface, domain/API, data, access/security, integration, testing or release as applicable. Route build, verification, review, and resumption to both the implementation plan and design-and-build workflow spec. State source precedence and how to raise an unresolved contradiction. Keep it short enough that an agent can find the relevant source quickly. Do not duplicate the PRD or cache facts visible in configuration.
 
 The `README.md` should show what exists now, the chosen folder tree, how to start work, and where to find the PRD and context docs. Links must resolve. Keep an open-decision register when material choices remain; it may live in the PRD or in a separate file. Keep requirement sources and owner clarifications traceable; a separate source register is useful when the input set is large or conflicting.
 
 ## Planned versus implemented
 
 Match source, test and configuration directories to the selected stack and module ownership. Include only code/configuration that can be maintained and verified at this stage. A documentation-only handoff is an explicit owner choice. Mark paths, services, tests and deployments **planned / not implemented** until they exist; never let a context document imply a build or integration has passed because it was specified. Add living engineering memory, a codebase map or dependency register when they will help maintain real implementation facts; seed them honestly and update them alongside code.
+
+For modular projects, a compact module map should connect responsibilities and affected flows to actual code landmarks, public contracts and protective tests as they appear; label expected locations as planned. Engineering memory records verified facts, decisions, constraints, issues and lessons with links to authorities. Populate known facts rather than handing off empty maintenance templates. Keep provider selection distinct from account configuration and connectivity evidence in dependency/setup registers.
 
 ### Scaffold readiness evidence
 
@@ -73,4 +85,8 @@ Record checks performed and their results separately from checks planned for imp
 
 Compare every created document with the canonical PRD for vocabulary, scope, actor access, state transitions, data ownership, stack, security controls, open decisions and release gates. Check only the topics that apply to the product, but check all of those thoroughly. When a document is intentionally removed, retire or redirect its references. Confirm that every file named by `README.md` or `AGENTS.md` exists and that every created context file has a clear reason to remain.
 
-Then review skeptically: could an implementer still need to invent a business rule, failure path or security boundary? Which assumptions lack evidence or owner acceptance? Which components or documents add complexity without serving confirmed requirements? What claimed readiness exceeds the checks actually performed? Resolve material gaps, simplify unsupported choices and qualify unsupported claims before handoff; return owner decisions to the open register rather than silently choosing them.
+Compare product permission/lifecycle rules with technical contracts, accepted stack/provider decisions with setup registers, flow/requirement IDs with plan references, and declared artifacts with actual files. Mark superseded discovery guidance explicitly so it cannot compete with current rules. Where a standalone PDF includes specialist content, identify it as a generated snapshot of named authorities and use a reproducible assembly process; keep editable rules in one home and refresh snapshots after changes.
+
+Perform a representative-feature walkthrough using only the generated package. Choose a critical end-to-end journey and relevant failure/permission paths: locate its owning module, interaction steps, domain/data/API rules, checks and decision prerequisites. Record concrete gaps and repairs with preparation evidence in the existing plan. For a UI application, also confirm that a designer can identify the required information, actions, handoffs and states without inventing consequential product behavior. Fix missing contracts or link specific blockers to dependent slices; unrelated ready work can proceed.
+
+Then review skeptically: which assumptions lack evidence or owner acceptance? Which components or documents add complexity without serving confirmed requirements? What claimed readiness exceeds the checks actually performed? Resolve material gaps, simplify unsupported choices and qualify unsupported claims before handoff. Structural checks verify files/references; this content review verifies usable direction and consistency.

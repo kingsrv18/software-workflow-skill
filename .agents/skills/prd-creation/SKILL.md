@@ -21,14 +21,14 @@ Completion: the agreed product is specific enough to document without inventing 
 
 ## 2. Author the canonical PRD
 
-Read [prd-contract.md](references/prd-contract.md). Preserve its opening sections, user-flow walkthroughs, technology/architecture presentation, and editorial depth. Include release scope and acceptance criteria, with applicable product, data, security, integration, and operational requirements. Detailed delivery phases, slices, sequencing, and progress belong to the subsequent implementation plan.
+Read [prd-contract.md](references/prd-contract.md). Preserve its opening sections, user-journey explanation, technology/architecture presentation, and editorial depth. For applications with a UI, also read [user-flows.md](references/user-flows.md) and create the structured user-flows document alongside the PRD, before implementation planning. Include release scope and acceptance criteria, with applicable product, data, security, integration, and operational requirements. Detailed delivery phases, slices, sequencing, and progress belong to the subsequent implementation plan.
 
 Create an editable canonical PRD source and a dated PDF snapshot in the agreed output location; a small document folder is sufficient. Preserve an editable architecture diagram source and needed exports. Choose depth from the product, not a page budget. Verify current technology, security, legal, and provider claims against current primary sources and record sources/check dates where useful. Mark recommendations and uncertainty honestly.
 
-Completion: the content/editorial quality gate passes and the product and architecture are understandable without project context docs or appendices.
+Completion: the content/editorial quality gate passes, the product and architecture are understandable without project context docs or appendices, and the applicable user-flows document is ready to guide subsequent UI design without inventing consequential product behavior.
 
 ## 3. Render, review, and hand off
 
 Render the PDF to page images and inspect every page for clipping, tables, hierarchy, diagrams, missing glyphs, and page breaks. Check extracted text and page count separately. Repair and rerender until readable. Reconcile source, PDF, diagram, agreed decisions, and requirement coverage; report unresolved decisions without hiding them as settled facts.
 
-Deliver source/PDF/diagram paths, agreed release outcome, and accepted open decisions. Identify implementation planning as the next stage; `implementation-plan-workflow` or equivalent planning can use the PRD directly. Context docs, the design-and-build workflow spec, and scaffolding follow through `project-preparation` or equivalent preparation. This skill completes with the PRD artifacts rather than creating that project package.
+Deliver source/PDF/diagram and applicable user-flows paths, agreed release outcome, and accepted open decisions. Identify implementation planning as the next stage; `implementation-plan-workflow` or equivalent planning can use these artifacts directly. Context docs, the design-and-build workflow spec, and scaffolding follow through `project-preparation` or equivalent preparation. UI designs may be created afterward using the flows in any user-selected design tool connected to the coding agent, or supplied through accessible material; completed designs are not a prerequisite for this handoff. This skill completes with the requirements artifacts rather than creating that project package or generating UI designs.

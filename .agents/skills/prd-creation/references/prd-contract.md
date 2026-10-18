@@ -18,15 +18,11 @@ Preserve sections 4 and 5 and their subsections across products. Adapt technolog
 
 The primary-users subsection explains who uses the application most, their working context, goals and difficulties, and why the product helps. Identify buyers and supporting actors separately, with their responsibilities and access boundaries. The usage subsection describes the overall operating loop and how first-time, daily and periodic tasks connect.
 
-Use a use-case table with **ID | Actor | Goal and trigger | Successful outcome | Release | Flow reference**. Give every in-scope use case a flow reference and every critical first-release flow a complete walkthrough. Supporting use cases may share a flow where their paths are explicitly covered. Separate later-release use cases visibly.
+Use a use-case table with **ID | Actor | Goal and trigger | Successful outcome | Release | Flow reference**. Give every in-scope use case a flow reference. For UI applications, create the companion document using [user-flows.md](user-flows.md); it owns detailed walkthroughs and design handoff. Keep the PRD's operating loop and critical journey explanations substantive enough to understand the product independently. Supporting use cases may share a flow where their paths are explicitly covered. Separate later-release use cases visibly.
 
 Derive coverage from the accepted scope, capability matrix and functional requirements, including applicable setup, master data, money/corrections, files/delivery, reports/audit, access/connection lifecycle, operational recovery and closure tasks. Audit both directions: every in-scope item reaches a concrete flow or explicitly described branch, and each proposed flow traces to accepted scope. A populated flow reference is insufficient if the referenced walkthrough omits that item's behavior. Preserve an ID-based coverage record for review; distinguish later work and unresolved source details from completed specification.
 
-Give each flow a stable ID and descriptive heading. Explain its purpose and scenario, then identify actors, trigger, preconditions and entry point. Present the normal path as numbered steps or a table with **Step | Screen or workspace | User action and input | Visible system response and next state**. Capture decisions and actor handoffs where they happen. Proposed screen names describe planned workspaces; they do not imply an existing UI or prescribe final visual design.
-
-After the normal path, explain alternate paths, validation and permission failures, cancellation/correction, pending work and recovery as applicable. State the final user-visible outcome, records or notifications produced, and observable acceptance checks. Describe what the user sees and does before explaining supporting technical safeguards. A backend processing summary or a sentence saying that a journey must include failure states is insufficient: document the actual applicable states and recovery behavior for that flow.
-
-Include a flow diagram for journeys with branching or multiple actor handoffs when it makes the sequence easier to follow. Keep the written walkthrough authoritative and align diagram labels with its steps. State machines supplement user flows by explaining lifecycle rules.
+Use the same stable flow IDs in the PRD and companion document. Explain critical user actions, visible outcomes, decisions, actor handoffs and material recovery paths in the PRD; link the full interaction contract rather than maintaining a second editable walkthrough. For products without a companion UI-flow document, keep complete applicable journeys in the PRD. State machines supplement journeys by explaining lifecycle rules.
 
 ## Technology and architecture presentation
 
@@ -62,7 +58,7 @@ For a revision test, compare the candidate with the previous artifact, adopted w
 - Release boundary: in scope, out of scope, later releases, assumptions and dependencies. State the complete first-release user outcome.
 - Personas and permissions: use the users and flows format above; include responsibility, record scope, sensitive-data visibility and approval boundaries.
 - Canonical vocabulary and domain model: entities, ownership, cardinality, lifecycle, historical integrity; distinguish business concepts from database tables.
-- User journeys: trigger, preconditions, normal path, exceptions/corrections, outputs, notifications and acceptance criteria for every critical flow. Specify applicable loading, empty, error, pending, success and permission states: what the user sees, what actions are available and how to recover. An empty state offers a next action, an error state explains recovery, and pending forms prevent accidental duplicate submission. For example, a pending export retains its job status across reloads; a failed export explains whether retry is safe. Check critical journeys for missing states, keyboard access and responsive behavior. Include state transitions and guards where relevant.
+- User journeys: explain critical journeys in the PRD and link the structured interaction contracts defined above. Verify applicable states, recovery, outputs and acceptance criteria in their authoritative home; include state transitions and guards where relevant.
 - Functional requirements: stable IDs or another traceable scheme; priority, source, behavior, error/edge handling and acceptance checks. Link to journeys and release scope.
 - Nonfunctional requirements: security, privacy, accessibility, performance, capacity, availability, recovery, supportability, localization and data retention as applicable. Quantify targets or mark them as open.
 
@@ -92,7 +88,7 @@ Apply these prompts only where the product needs them; record concrete behavior 
 
 Before delivery, verify all of the following against the source and rendered PDF:
 
-- Primary users, supporting actors, usage model and use-case inventory are explicit in the main document. Every in-scope use case maps to a documented flow, and every critical first-release flow includes user steps, visible responses, applicable recovery and acceptance checks.
+- Primary users, supporting actors, usage model and use-case inventory are explicit in the main document. Every in-scope use case maps to a documented flow. The applicable companion flow document passes its completion review, and the PRD explains critical journeys without depending on that document for basic product understanding.
 - Sections 4 and 5 and their required subsections exist with substantive product-specific tables, rationale, request walkthrough and boundary rules. The architecture diagram is present, legible and consistent with scope, stack and prose; its editable source exists.
 - The editorial review passes: major sections explain behavior, reasons and consequences, unfamiliar terms are defined, and a reader can understand the product without consulting appendices or project context files.
 

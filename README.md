@@ -36,7 +36,7 @@ Use [software-workflow](.agents/skills/software-workflow/SKILL.md) to run the st
 
 | Stage | Skill | Deliverables |
 | --- | --- | --- |
-| 1 | [prd-creation](.agents/skills/prd-creation/SKILL.md) | Agreed product requirements, editable canonical PRD, reviewed PDF, and architecture diagram source. |
+| 1 | [prd-creation](.agents/skills/prd-creation/SKILL.md) | Agreed product requirements, editable canonical PRD, reviewed PDF, architecture diagram source, and structured user flows for UI applications. |
 | 2 | [implementation-plan-workflow](.agents/skills/implementation-plan-workflow/SKILL.md) | Phases, small executable slices, preparation dependencies, named flow/module checkpoints, and persistent progress. |
 | 3 | [project-preparation](.agents/skills/project-preparation/SKILL.md) | Populated context docs, design-and-build workflow spec, README/AGENTS navigation, and verified project starter. |
 
@@ -45,6 +45,10 @@ Use [software-workflow](.agents/skills/software-workflow/SKILL.md) to run the st
 Start with a typed idea, requirements documents, reference URLs, an inspiration app open in the browser, or a combination. A requirements document is optional.
 
 The skill clarifies consequential decisions and confirms the product brief, then documents users, flows, business rules, release scope, acceptance criteria, stack, architecture, and relevant technical boundaries. It preserves an editable source and visually reviews the rendered PDF. Detailed implementation phases and project scaffolding belong to the following stages.
+
+For UI applications, it also creates a canonical user-flows document alongside the PRD, defaulting to `docs/product/user-flows.md`. Role and module indexes point to the same flows, including cross-role handoffs, inputs, visible responses, branches, failure/recovery, outcomes and design needs. The PRD remains understandable on its own; the flow document owns detailed interaction sequences and links specialist rules rather than duplicating them.
+
+The workflow supports research/product brief → PRD and flows → implementation plan → context docs and scaffold → UI design → implementation. UI design can follow preparation in any user-selected design tool connected to the coding agent, or through supplied material. The flow document guides required experiences and states while leaving screen composition to design. Reviewed screen/frame references are mapped back to flow steps when available; completed designs are prerequisites for dependent UI implementation rather than for project preparation.
 
 ### Implementation planning and workflow
 
@@ -59,6 +63,8 @@ Plans assess applicable work through market/commercial launch: staging and produ
 ### Project preparation
 
 Use the agreed PRD and implementation plan to choose product-specific context docs and create an executable starter, or a documentation-only handoff when explicitly chosen. Preserve accepted decisions and existing code. Verify startup within the available boundaries and report configuration/provider setup still needed.
+
+Preparation maps applicable concerns to authoritative sections before selecting files, then supplies concrete implementation contracts at the depth the product needs. It reconciles product/technical rules and provider/setup decisions, checks promised artifacts, and walks through a critical feature using the package to expose missing rules or decision dependencies. Task routing, useful module maps and populated engineering memory support later maintenance without a fixed document count. Structural checks establish reference integrity; content review establishes usable direction.
 
 The skill creates `docs/build-workflow.md` or adapts an equivalent authoritative spec. It tells future agents how to:
 

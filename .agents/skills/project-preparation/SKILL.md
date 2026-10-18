@@ -9,9 +9,9 @@ Prepare a real project folder from the agreed product requirements and implement
 
 ## 1. Ground the preparation
 
-Read the canonical PRD, reviewed PDF, implementation plan, available specs/design references, project instructions, and actual source/configuration. Identify accepted choices, open decisions, preparation tasks, and the verified baseline. If no implementation plan exists, identify planning as the prerequisite; `implementation-plan-workflow` or equivalent planning can provide it. Keep accepted source artifacts and their authority intact when assembling the folder.
+Read the canonical PRD, reviewed PDF, applicable structured user-flows document, implementation plan, available specs/design references, project instructions, and actual source/configuration. Identify accepted choices, open decisions, preparation tasks, and the verified baseline. If no implementation plan exists, identify planning as the prerequisite; `implementation-plan-workflow` or equivalent planning can provide it. Keep accepted source artifacts and their authority intact when assembling the folder. UI designs may follow preparation; record them as pending inputs to dependent work rather than prerequisites for the scaffold.
 
-Choose the documentation map using [context-package.md](references/context-package.md). Give each document a distinct purpose and authority. Confirm consequential gaps or changes with the owner; do not repeat discovery for settled decisions. Show the proposed folder/document map and preparation boundaries, reusing prior approval when it covers them. An executable starter is the default; a documentation-only handoff is an explicit owner choice.
+Choose the documentation map using [context-package.md](references/context-package.md), starting with its concern-to-authority coverage review. Give each document a distinct purpose and authority. Confirm consequential gaps or changes with the owner; do not repeat discovery for settled decisions. Show the proposed folder/document map and preparation boundaries, reusing prior approval when it covers them. An executable starter is the default; a documentation-only handoff is an explicit owner choice.
 
 Completion: source authorities, preparation scope, document map, and blockers are clear, with no consequential choice silently treated as settled.
 
@@ -23,7 +23,7 @@ Read [build-workflow-handoff.md](references/build-workflow-handoff.md). Create o
 
 Create a navigable `README.md` and concise task-routed `AGENTS.md`. Route build, verification, review, and resumption to the plan and workflow spec, and product/technical tasks to the relevant authoritative docs. These project documents must remain usable without any skill installed.
 
-Completion: every context file has product-specific substance, the workflow spec covers the project's delivery loop, and navigation links resolve to real authorities.
+Completion: applicable concerns have concrete implementation contracts or explicit decision dependencies, every context file has product-specific substance, the workflow spec covers the project's delivery loop, and navigation links resolve to real authorities, including the flow document for UI design tasks.
 
 ## 3. Scaffold and verify
 
@@ -35,7 +35,7 @@ Completion: the skeleton is verified within stated boundaries, or concrete block
 
 ## 4. Reconcile and hand off
 
-Compare the package with the agreed PRD and plan for vocabulary, scope, permissions, state transitions, data ownership, stack, security, open decisions, and review/release gates. Check every promised artifact and local reference; retire references to intentionally removed documents. Run `python <skill-directory>/scripts/check_package.py <project-folder> --pdf <relative-pdf-path>` and inspect plain-text references the checker may miss.
+Perform the reconciliation and representative-feature walkthrough in [context-package.md](references/context-package.md#reconciliation). Check every promised artifact and local reference; retire references to intentionally removed documents. Run `python <skill-directory>/scripts/check_package.py <project-folder> --pdf <relative-pdf-path> --document <relative-plan-path> --document <relative-workflow-path>`, adding `--document <relative-flow-path>` for the applicable flow document and other promised context files. Inspect plain-text references the checker may miss; passing structural checks does not establish content completeness.
 
 Complete housekeeping and Git review in [context-package.md](references/context-package.md#local-files-and-git-handoff), then run `python <skill-directory>/scripts/audit_size.py <project-folder>`. Resolve or explain flags, preserve useful dependencies and unresolved failure evidence, and report local size separately from Git-eligible size and repository status.
 

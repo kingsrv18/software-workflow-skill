@@ -8,11 +8,13 @@ Reuse an existing authoritative workflow document or create `docs/build-workflow
 
 Explain preparation versus feature implementation and the verified baseline. Record actual preview commands, provider/mock boundaries, safe fixtures, approval ownership, and known access/setup blockers. Preserve unknowns as explicit inputs needed before dependent work.
 
+When UI design follows preparation, route design tasks to the structured user-flows document and relevant specialist rules. Use any user-selected connected design tool or supplied design material; design creation requires an authorized design task. After review, map flow steps/states to actual screens/frames and update affected plan dependencies. Pending screens do not block scaffold preparation, but remain inputs required before dependent UI implementation. Layout choices can refine page boundaries; product-behavior changes return to their authoritative specs.
+
 ## Follow the plan and obtain design inputs
 
 At each session, read project agent instructions, current plan, workflow spec, and the relevant source docs. Check actual files and verification evidence before trusting recorded progress. Select the next ready slice or flow whose dependencies and previous approval gates are satisfied.
 
-For design-dependent work, locate the relevant named flow/module in the plan and its linked design source. If a linked design tool is accessible, inspect the relevant frames, screens, transitions, components, and states directly through available tools. Use existing supplied design material when it covers the flow; avoid asking the user to resupply accessible inputs. Record the source/version or frame identity used.
+For design-dependent implementation, locate the relevant named flow/module in the plan, its structured flow contract and linked reviewed design source. If a linked design tool is accessible, inspect the relevant frames, screens, transitions, components, and states directly through available tools. Use existing supplied design material when it covers the flow; avoid asking the user to resupply accessible inputs. Record the source/version or frame identity used.
 
 If the relevant flow is missing, unclear, or inaccessible, ask the user to provide the next flow's design/screens or accessible tool link, or resolve the specific gap. Leave design-dependent work blocked until the input or an explicitly accepted alternative is available. Do not invent an approved design. Apply this design step to work that needs it; setup, backend-only work, and non-UI modules use their applicable contracts.
 
