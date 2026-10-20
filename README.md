@@ -36,9 +36,9 @@ Use [software-workflow](.agents/skills/software-workflow/SKILL.md) to run the st
 
 | Stage | Skill | Deliverables |
 | --- | --- | --- |
-| 1 | [prd-creation](.agents/skills/prd-creation/SKILL.md) | Agreed product requirements, editable canonical PRD, reviewed PDF, architecture diagram source, and structured user flows for UI applications. |
+| 1 | [prd-creation](.agents/skills/prd-creation/SKILL.md) | Agreed product requirements, editable canonical PRD, reviewed PDF, architecture diagram source, and structured user flows plus proposed screen inventory for UI applications. |
 | 2 | [implementation-plan-workflow](.agents/skills/implementation-plan-workflow/SKILL.md) | Phases, small executable slices, preparation dependencies, named flow/module checkpoints, and persistent progress. |
-| 3 | [project-preparation](.agents/skills/project-preparation/SKILL.md) | Populated context docs, design-and-build workflow spec, README/AGENTS navigation, and verified project starter. |
+| 3 | [project-preparation](.agents/skills/project-preparation/SKILL.md) | Populated context docs, design-and-build workflow spec, development initiation prompt, README/AGENTS navigation, and verified project starter. |
 
 ### PRD creation
 
@@ -48,7 +48,7 @@ The skill clarifies consequential decisions and confirms the product brief, then
 
 For UI applications, it also creates a canonical user-flows document alongside the PRD, defaulting to `docs/product/user-flows.md`. Role and module indexes point to the same flows, including cross-role handoffs, inputs, visible responses, branches, failure/recovery, outcomes and design needs. The PRD remains understandable on its own; the flow document owns detailed interaction sequences and links specialist rules rather than duplicating them.
 
-The workflow supports research/product brief → PRD and flows → implementation plan → context docs and scaffold → UI design → implementation. UI design can follow preparation in any user-selected design tool connected to the coding agent, or through supplied material. The flow document guides required experiences and states while leaving screen composition to design. Reviewed screen/frame references are mapped back to flow steps when available; completed designs are prerequisites for dependent UI implementation rather than for project preparation.
+The workflow supports research/product brief → PRD and flows → implementation plan → context docs and scaffold → UI design → implementation. UI design can follow preparation in any user-selected design tool connected to the coding agent, or through supplied material. The flow document guides required experiences and states while leaving screen composition to design. The companion `docs/ui/screen-inventory.md` owns canonical screen IDs/names and exact design lookup. Defaults are `FL-004` for a flow, `FL-004.S03` for a step, and `SCR-012` for a screen; frame names include the screen ID, canonical name, viewport and state. Logical screens exist as proposals before design; actual tool-native references stay pending. Shared screens and variants retain their identity, and renamed/superseded screens keep traceable mappings. Reviewed frame references are recorded in the inventory and reached from flow steps; completed designs are prerequisites for dependent UI implementation rather than for project preparation.
 
 ### Implementation planning and workflow
 
@@ -69,14 +69,16 @@ Preparation maps applicable concerns to authoritative sections before selecting 
 The skill creates `docs/build-workflow.md` or adapts an equivalent authoritative spec. It tells future agents how to:
 
 - Select the next ready flow/module from the plan and check prerequisites.
-- Retrieve relevant designs directly from an accessible linked design tool or use supplied material; ask the user for the next flow's design when missing or inaccessible.
+- Resolve flow → step → screen → required variant through the inventory, then retrieve and inspect its reviewed design. Resolve missing or ambiguous references before dependent UI work.
 - Build and verify bounded work, then demonstrate a working preview with safe representative data, navigation, and relevant states.
 - Obtain flow/module review, resolve feedback, show revisions, and obtain explicit approval before advancing past the checkpoint.
 - Maintain evidence and progress in the plan and resume from the recorded state.
 
 Non-UI modules use an appropriate runnable demonstration. Mock and real boundaries remain explicit. The workflow spec defines procedures; it does not duplicate the implementation plan. Generated project instructions link both documents so agents can work without these skills installed.
 
-Preparation also checks local links and performs a disk/Git audit, separating installed dependencies and generated files from files eligible for version control.
+Preparation also generates `PROJECT_INITIATION_PROMPT.md`, linked from the project README. Paste it into a fresh coding-agent chat to load the project authorities, verify the actual baseline, select current ready work from the live plan, resolve designs, implement and test the flow, demonstrate it, and record progress. It uses actual project document paths and works without installed workflow skills.
+
+Preparation checks local links and promised artifacts (including the prompt and applicable inventory) and performs a disk/Git audit, separating installed dependencies and generated files from files eligible for version control.
 
 ## Use it
 

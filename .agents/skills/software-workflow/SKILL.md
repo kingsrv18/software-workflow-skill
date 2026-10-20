@@ -17,9 +17,9 @@ Locate the three focused skills by name in the available skill catalog, or use t
 
 | Order | Skill to read and follow | Inputs and completion boundary |
 | --- | --- | --- |
-| 1 | [prd-creation](../prd-creation/SKILL.md) | Start with the product brief, idea and supplied references. Complete discovery and owner decision confirmation, then create and visually review the editable PRD, PDF, and architecture artifacts, plus the applicable structured user-flows document for later UI design. |
+| 1 | [prd-creation](../prd-creation/SKILL.md) | Start with the product brief, idea and supplied references. Complete discovery and owner decision confirmation, then create and visually review the editable PRD, PDF, and architecture artifacts, plus applicable structured user flows and proposed screen inventory with consistent IDs/names for later UI design. |
 | 2 | [implementation-plan-workflow](../implementation-plan-workflow/SKILL.md) | Use the agreed canonical PRD and available specs/designs. Run its planning steps, producing phases, slices, dependencies, preparation work, applicable environment/operations/document/launch work, checkpoints, and readiness/blockers. A scaffold is not required. |
-| 3 | [project-preparation](../project-preparation/SKILL.md) | Use that PRD and plan to create context docs, the design-and-build workflow spec, project navigation, and starter. Complete package checks, startup verification within stated limits, and disk/Git audit; record preparation evidence in the existing plan. |
+| 3 | [project-preparation](../project-preparation/SKILL.md) | Use that PRD and plan to create context docs, the design-and-build workflow spec, development initiation prompt, project navigation, and starter. Complete package checks, startup verification within stated limits, and disk/Git audit; record preparation evidence in the existing plan. |
 
 Use one agreed output/project location through the stages. Carry real source paths and decision status forward; preserve canonical authority if preparation relocates artifacts. Present a short stage transition with completed outputs and the next outcome. A focused skill's stage-only handoff marks that stage complete; when the user requested the full workflow, continue to the next authorized stage.
 
@@ -31,7 +31,7 @@ Carry the same flow IDs and source authority through all stages. The prepared pa
 
 ## Finish or resume
 
-Check that completed outputs agree, their links resolve, and readiness claims match performed checks. Deliver the PRD source/PDF, applicable user-flows document, plan, project folder, and workflow-spec paths as applicable, with verified limits, unresolved setup/decisions, and the next ready action. Do not create a second coordinator plan or progress document: before the implementation plan exists, record the current stage and pending input in the handoff; afterward use the plan's preparation/progress and resume records.
+Check that completed outputs agree, their links resolve, and readiness claims match performed checks. Deliver the PRD source/PDF, applicable user-flows and screen-inventory documents, plan, project folder, initiation-prompt and workflow-spec paths as applicable, with verified limits, unresolved setup/decisions, and the next ready action. Do not create a second coordinator plan or progress document: before the implementation plan exists, record the current stage and pending input in the handoff; afterward use the plan's preparation/progress and resume records.
 
 On resumption, inspect actual artifacts and evidence before selecting the earliest stage needing work. If an upstream requirement changes, revise its authority and affected downstream plan/context together, preserving unrelated completed work and approval history.
 
